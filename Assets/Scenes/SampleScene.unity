@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &6075784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6075786}
+  - component: {fileID: 6075785}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &6075785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e51d916d346f92488dd42182fd6e97d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  car: {fileID: 1413878505}
+--- !u!4 &6075786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075784}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 159.36612, y: -91.165924, z: 59.09018}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,6 +1295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1413878503}
   - component: {fileID: 1413878504}
+  - component: {fileID: 1413878506}
   - component: {fileID: 1413878505}
   m_Layer: 0
   m_Name: PlayerCar
@@ -1306,19 +1352,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3113d6cf6059a42449290b2fa04e1042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheelColliders:
-  - {fileID: 1555611624}
-  - {fileID: 1349432773}
-  - {fileID: 1238655591}
-  - {fileID: 1932922961}
-  wheelMeshes:
-  - {fileID: 2132101186}
-  - {fileID: 921228373}
-  - {fileID: 1479580060}
-  - {fileID: 1464617585}
-  motorTorque: 1500
-  breakTorque: 5000
-  steerAngle: 15
+  maxMotorTorque: 1500
+  maxSteerAngle: 15
+  maxBrakeTorque: 5000
+  ThrottleControl: 0
+  SteerControl: 0
+  BrakeControl: 0
+  HandBrakeControl: 0
+--- !u!114 &1413878506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413878502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98a3507fc57c24459d4ed924c87d355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wheelAxles:
+  - leftWheelCollider: {fileID: 1555611624}
+    rightWheelCollider: {fileID: 1349432773}
+    leftWheelMesh: {fileID: 2132101186}
+    rightWheelMesh: {fileID: 921228373}
+    isMotor: 1
+    isSteer: 1
+  - leftWheelCollider: {fileID: 1238655591}
+    rightWheelCollider: {fileID: 1932922961}
+    leftWheelMesh: {fileID: 1479580060}
+    rightWheelMesh: {fileID: 1464617585}
+    isMotor: 1
+    isSteer: 0
+  MotorTorque: 0
+  BrakeTorque: 0
+  SteerAngle: 0
 --- !u!4 &1464617585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3160711768088029840, guid: 5c9409ea79147c647b1bc4de69956e33,

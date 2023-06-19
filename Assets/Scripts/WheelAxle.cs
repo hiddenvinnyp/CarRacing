@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 
+[Serializable]
 public class WheelAxle
 {
     [SerializeField] private WheelCollider leftWheelCollider;

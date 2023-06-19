@@ -1,10 +1,10 @@
-using System;
 using UnityEngine;
 
 public class CarChassis : MonoBehaviour
 {
     [SerializeField] private WheelAxle[] wheelAxles;
 
+    //Hide after DEBUG
     public float MotorTorque;
     public float BrakeTorque;
     public float SteerAngle;
