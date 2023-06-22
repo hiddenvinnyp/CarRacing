@@ -1,13 +1,65 @@
+using System;
 using UnityEngine;
 
 public class CarInputControl : MonoBehaviour
 {
     [SerializeField] private Car car;
+    [SerializeField] private AnimationCurve brakeCurve;
+    [SerializeField][Range(0.0f, 1.0f)] private float autoBrakeStrength = 0.5f;
+    [SerializeField] private AnimationCurve steerCurve;
+
+    private float wheelSpeed;
+    private float verticalAxis;
+    private float horizontalAxis;
+    private float handbrakeAxis;
 
     private void Update()
     {
-        car.ThrottleControl = Input.GetAxis("Vertical");
-        car.BrakeControl = Input.GetAxis("Jump");
-        car.SteerControl = Input.GetAxis("Horizontal");
+        wheelSpeed = car.WheelSpeed;
+        UpdateAxis();
+
+        UpdateTorttleAndBrake();
+        UpdateBrake();
+        UpdateSteer();   
+        
+        UpdateAutoBrake();
+    }
+
+    private void UpdateTorttleAndBrake()
+    {
+        if (Mathf.Sign(verticalAxis) == Mathf.Sign(wheelSpeed) || Mathf.Abs(wheelSpeed) < 0.5f)
+        {
+            car.ThrottleControl = verticalAxis;
+            car.BrakeControl = 0;
+        } else
+        {
+            car.ThrottleControl = 0;
+            car.BrakeControl = brakeCurve.Evaluate(wheelSpeed / car.MaxSpeed);
+        }
+    }
+
+    private void UpdateBrake() //ручной тормоз. в car и carchassis
+    {
+        
+    }
+
+    private void UpdateSteer()
+    {
+        car.SteerControl = steerCurve.Evaluate(wheelSpeed / car.MaxSpeed) * horizontalAxis;
+    }
+
+    private void UpdateAxis()
+    {
+        verticalAxis = Input.GetAxis("Vertical");
+        horizontalAxis = Input.GetAxis("Horizontal");
+        handbrakeAxis = Input.GetAxis("Jump");
+    }
+
+    private void UpdateAutoBrake()
+    {
+        if (verticalAxis == 0)
+        {
+            car.BrakeControl = brakeCurve.Evaluate(wheelSpeed / car.MaxSpeed) * autoBrakeStrength;
+        }
     }
 }
