@@ -10,6 +10,7 @@ public class TrackPoint : MonoBehaviour
 
     protected bool isTarget;
     public bool IsTarget => isTarget;
+    public bool IsCenter => !IsFirst && !IsLast;
 
     private void OnTriggerEnter(Collider other)
     {
