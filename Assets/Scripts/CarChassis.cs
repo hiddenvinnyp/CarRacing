@@ -23,11 +23,10 @@ public class CarChassis : MonoBehaviour
     public float BrakeTorque;
     public float SteerAngle;
 
-    public float LinearVelocity => carRigidbody.velocity.magnitude * 3.6f; // Ïונוגמה ג ךל/ק
-
     private Rigidbody carRigidbody;
     private float downForce;
     private int amountMotorWheel = 0;
+    public float LinearVelocity => carRigidbody.velocity.magnitude * 3.6f; // Ïונוגמה ג ךל/ק
 
     private void Start()
     {
@@ -40,6 +39,11 @@ public class CarChassis : MonoBehaviour
         {
             if (wheelAxles[i].IsMotor)
                 amountMotorWheel += 2;
+        }
+
+        for (int i = 0; i < wheelAxles.Length; ++i)
+        {
+            wheelAxles[i].ConfigureVehicleSubsteps(50, 50, 50);
         }
     }
 
