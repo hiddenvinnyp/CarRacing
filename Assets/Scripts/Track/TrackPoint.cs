@@ -27,4 +27,11 @@ public class TrackPoint : MonoBehaviour
     {
         isTarget = true;
     }
+
+    public void ResetPoint()
+    {
+        NextNode = null;
+        IsFirst = false;
+        IsLast = false;
+    }
 }

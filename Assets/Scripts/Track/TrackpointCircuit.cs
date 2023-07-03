@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,19 +14,55 @@ public class TrackpointCircuit : MonoBehaviour
     public event UnityAction<TrackPoint> TrackPointTriggered;
 
     [SerializeField] private TrackType trackType;
-    [SerializeField] private TrackPoint[] points;
+    private TrackPoint[] points;
 
     private int lapsComplited = -1;
 
     private void Start()
     {
-        LapComplited += (t) => Debug.Log("lap compl");
+        BuildCircuit();
+
         foreach (var point in points)
         {
             point.Triggered += OnTrackPointTriggered;
         }
 
         points[0].AssignAsTarget();
+    }
+
+    [ContextMenu(nameof(BuildCircuit))]
+    private void BuildCircuit()
+    {
+        points = new TrackPoint[transform.childCount];
+
+        for (int i = 0; i < points.Length; i++) 
+        {
+            points[i] = transform.GetChild(i).GetComponent<TrackPoint>();
+
+            if (points[i] == null)
+            {
+                Debug.LogError($"No Trackpoint script on {points[i].name} onject");
+                return;
+            }
+
+            points[i].ResetPoint();
+        }
+
+        for (int i = 0; i < points.Length - 1; i++)
+        {
+            points[i].NextNode = points[i + 1];
+        }
+
+        if (trackType == TrackType.Circular)
+        { 
+            points[points.Length - 1].NextNode = points[0];
+            points[0].IsLast = true;
+        }
+
+        points[0].IsFirst = true;
+
+        if (trackType == TrackType.Sprint)
+            points[points.Length - 1].IsLast = true;
     }
 
     private void OnDestroy()
