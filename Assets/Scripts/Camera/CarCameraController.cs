@@ -1,16 +1,19 @@
 using System;
 using UnityEngine;
 
-public class CarCameraController : MonoBehaviour
+public class CarCameraController : MonoBehaviour, IDependancy<RaceStateTracker>, IDependancy<Car>
 {
-    [SerializeField] private Car car;
     [SerializeField] private Camera cam;
     [SerializeField] private CameraFollow follower;
     [SerializeField] private CameraShaker shaker;
     [SerializeField] private CameraFOVCorrector corrector;
     [SerializeField] private CameraPathFollower pathFollower;
 
-    [SerializeField] private RaceStateTracker raceStateTracker;
+    private Car car;
+    private RaceStateTracker raceStateTracker;
+
+    public void Construct(Car dependency) => car = dependency;
+    public void Construct(RaceStateTracker dependency) => raceStateTracker = dependency;
 
     private void Awake()
     {
@@ -48,5 +51,4 @@ public class CarCameraController : MonoBehaviour
         follower.enabled = true;
         pathFollower.enabled = false;
     }
-
 }

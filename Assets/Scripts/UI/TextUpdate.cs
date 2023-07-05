@@ -2,10 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Text))]
-public class TextUpdate : MonoBehaviour
+public class TextUpdate : MonoBehaviour, IDependancy<Car>
 {
-    [SerializeField] private Car car;
+    private Car car;
     private Text text;
+
+    public void Construct(Car dependency) => car = dependency;
 
     void Start()
     {

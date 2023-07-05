@@ -10,7 +10,7 @@ public enum RaceState
     Passed
 }
 
-public class RaceStateTracker : MonoBehaviour
+public class RaceStateTracker : MonoBehaviour, IDependancy<TrackpointCircuit>
 {
     public event UnityAction PreparationStarted; // Подготовка к старту, таймер
     public event UnityAction Started;
@@ -18,12 +18,16 @@ public class RaceStateTracker : MonoBehaviour
     public event UnityAction<TrackPoint> TrackPointPassed;
     public event UnityAction<int> LapCompleted;
 
-    [SerializeField] private TrackpointCircuit trackpointCircuit;
     [SerializeField] private Timer countdownTimer;
     [SerializeField] private int lapsToComplete;
 
+    private TrackpointCircuit trackpointCircuit;
+    public void Construct(TrackpointCircuit trackpointCircuit) =>
+        this.trackpointCircuit = trackpointCircuit;
+
     private RaceState state;
     public RaceState State => state;
+    public Timer CountdownTimer => countdownTimer;
 
     private void Start()
     {

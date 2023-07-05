@@ -2,11 +2,14 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class UICountDownTimer : MonoBehaviour
+public class UICountDownTimer : MonoBehaviour, IDependancy<RaceStateTracker>
 {
-    [SerializeField] private RaceStateTracker raceStateTracker;
-    [SerializeField] private Timer countdownTimer;
+
     [SerializeField] private TextMeshProUGUI text;
+
+    private Timer countdownTimer;
+    private RaceStateTracker raceStateTracker;
+    public void Construct(RaceStateTracker dependency) => raceStateTracker = dependency;
 
     private void Start()
     {
@@ -18,7 +21,7 @@ public class UICountDownTimer : MonoBehaviour
 
     private void Update()
     {
-        text.text = countdownTimer.Value.ToString("F0");
+        text.text = raceStateTracker.CountdownTimer.Value.ToString("F0");
 
         if (text.text == "0")
             text.text = "GO!";

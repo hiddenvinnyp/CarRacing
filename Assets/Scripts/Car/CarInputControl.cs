@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
 
-public class CarInputControl : MonoBehaviour
+public class CarInputControl : MonoBehaviour, IDependancy<Car>
 {
-    [SerializeField] private Car car;
     [SerializeField] private AnimationCurve brakeCurve;
     [SerializeField][Range(0.0f, 1.0f)] private float autoBrakeStrength = 0.5f;
     [SerializeField] private AnimationCurve steerCurve;
+
+    private Car car;
+    public void Construct(Car dependency) => car = dependency;
 
     private float wheelSpeed;
     private float verticalAxis;

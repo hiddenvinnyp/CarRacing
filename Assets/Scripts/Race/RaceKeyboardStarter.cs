@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class RaceKeyboardStarter : MonoBehaviour
+public class RaceKeyboardStarter : MonoBehaviour, IDependancy<RaceStateTracker>
 {
-    [SerializeField] private RaceStateTracker raceStateTracker;
+    private RaceStateTracker raceStateTracker;
+
+    public void Construct(RaceStateTracker dependency) => raceStateTracker = dependency;
 
     private void Update()
     {
