@@ -39,7 +39,7 @@ public class Car : MonoBehaviour
     public float HandBrakeControl;
 
     private CarChassis chassis;
-
+    public Rigidbody CarRigidbody => chassis == null? GetComponent<CarChassis>().CarRigidbody : chassis.CarRigidbody;
     public float LinearVelocity => chassis.LinearVelocity;
     public float NormalizeLinearVelocity => chassis.LinearVelocity / maxSpeed;
     public float WheelSpeed => chassis.GetWheelSpeed();

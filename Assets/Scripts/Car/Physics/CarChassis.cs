@@ -24,6 +24,7 @@ public class CarChassis : MonoBehaviour
     public float SteerAngle;
 
     private Rigidbody carRigidbody;
+    public Rigidbody CarRigidbody => carRigidbody == null? GetComponent<Rigidbody>(): carRigidbody;
     private float downForce;
     private int amountMotorWheel = 0;
     public float LinearVelocity => carRigidbody.velocity.magnitude * 3.6f; // Ïונוגמה ג ךל/ק
