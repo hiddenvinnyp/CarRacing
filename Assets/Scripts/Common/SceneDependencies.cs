@@ -12,6 +12,7 @@ public class SceneDependencies : MonoBehaviour
     [SerializeField] private CarInputControl control;
     [SerializeField] private Car car;
     [SerializeField] private CarCameraController controller;
+    [SerializeField] private RaceTimeTracker timeTracker;
 
     private void Awake()
     {
@@ -30,5 +31,6 @@ public class SceneDependencies : MonoBehaviour
         (mono as IDependancy<CarInputControl>)?.Construct(control);
         (mono as IDependancy<Car>)?.Construct(car);
         (mono as IDependancy<CarCameraController>)?.Construct(controller);
+        (mono as IDependancy<RaceTimeTracker>)?.Construct(timeTracker);
     }
 }
