@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent (typeof(Rigidbody))]
@@ -83,6 +82,12 @@ public class CarChassis : MonoBehaviour
     public float GetWheelSpeed()
     {
         return GetAverageRPM() * GetAverageRadius() * 2 * 0.1885f; // 2Pr * 0,06 θη μ/μ -> κμ/χ
+    }
+
+    public void Reset()
+    {
+        carRigidbody.velocity = Vector3.zero;
+        carRigidbody.angularVelocity = Vector3.zero;
     }
 
     private void UpdateAngularDrag()

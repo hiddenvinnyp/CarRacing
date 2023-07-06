@@ -79,13 +79,20 @@ public class CarInputControl : MonoBehaviour, IDependancy<Car>
 
     public void Stop()
     {
+        Reset();
+
+        car.BrakeControl = 1;
+    }
+
+    public void Reset()
+    {
         verticalAxis = 0;
         horizontalAxis = 0;
         handbrakeAxis = 0;
 
         car.ThrottleControl = 0;
         car.SteerControl = 0;
-        car.BrakeControl = 1;
+        car.BrakeControl = 0;
         car.HandBrakeControl = 0;
     }
 }

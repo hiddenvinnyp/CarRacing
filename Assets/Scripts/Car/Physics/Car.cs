@@ -103,6 +103,28 @@ public class Car : MonoBehaviour
         selectedGear = 0;
         GearChanged?.Invoke(GetSelectedGearName());
     }
+
+    public void Reset()
+    {
+        chassis.Reset();
+
+        chassis.MotorTorque = 0;
+        chassis.BrakeTorque = 0;
+        chassis.SteerAngle = 0;
+
+        ThrottleControl = 0;
+        BrakeControl = 0;
+        SteerControl = 0;
+        HandBrakeControl = 0;
+    }
+
+    public void Respawn(Vector3 position, Quaternion rotation)
+    {
+        Reset();
+
+        transform.position = position;
+        transform.rotation = rotation;
+    }
     #endregion
 
     #region Private section
