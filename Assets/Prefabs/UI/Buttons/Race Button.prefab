@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2747149908288107610}
   - component: {fileID: 4799341544722831426}
+  - component: {fileID: 4437562983252889775}
   m_Layer: 5
   m_Name: Race Button
   m_TagString: Untagged
@@ -60,6 +61,32 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &4437562983252889775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 300940953847076594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89ef2942e7118bc46a0198f543c40883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Interactable: 1
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  selectImage: {fileID: 6118291230988052951}
+  OnSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUnSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  raceInfo: {fileID: 0}
+  icon: {fileID: 3097326026313850924}
+  title: {fileID: 235688977833713974}
 --- !u!1 &1059951592544881003
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,9 +424,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 153, y: 118}
-  m_SizeDelta: {x: 656.7275, y: 425.645}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -37, y: -25}
+  m_SizeDelta: {x: 276.72748, y: 139.64499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4256286718141709009
 CanvasRenderer:
@@ -456,7 +483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6482602470004877080
 RectTransform:
   m_ObjectHideFlags: 0
@@ -492,7 +519,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8843499287564129993}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
