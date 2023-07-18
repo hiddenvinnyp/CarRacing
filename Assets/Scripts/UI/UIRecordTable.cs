@@ -14,10 +14,10 @@ public class UIRecordTable : MonoBehaviour, IDependancy<RaceResultTime>
     private void Start()
     {
         raceResultTime.ResultUpdated += OnResultUpdated;
-
-        recordObject.SetActive(false);
-        playerResultObject.SetActive(false);
-        enabled = false;
+        gameObject.SetActive(false);
+        //recordObject.SetActive(false);
+        //playerResultObject.SetActive(false);
+        //enabled = false;
     }
 
     private void OnDestroy()
@@ -27,7 +27,7 @@ public class UIRecordTable : MonoBehaviour, IDependancy<RaceResultTime>
 
     private void OnResultUpdated()
     {
-        enabled = true;
+        gameObject.SetActive(true);
 
         if (raceResultTime.PlayerRecordTime < raceResultTime.GoldTime && raceResultTime.CurrentTime > raceResultTime.PlayerRecordTime)
         {
@@ -41,9 +41,9 @@ public class UIRecordTable : MonoBehaviour, IDependancy<RaceResultTime>
         {
             recordTime.text = "updated!";
         }
-        recordObject.SetActive(true);
+        //recordObject.SetActive(true);
 
         playerResultTime.text = StringTime.SecondToTimeSpring(raceResultTime.CurrentTime);
-        playerResultObject.SetActive(true);
+        //playerResultObject.SetActive(true);
     }
 }

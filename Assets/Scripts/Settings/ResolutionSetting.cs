@@ -41,13 +41,15 @@ public class ResolutionSetting : Setting
 
     public override void Apply()
     {
+        if (resolutions == null) UpdateResolutions();
         Screen.SetResolution(resolutions[currentResolurionIndex].width, resolutions[currentResolurionIndex].height, true);
         Save();
     }
 
     public override void Load()
     {
-        currentResolurionIndex = PlayerPrefs.GetInt(title, 0);
+        if (resolutions == null) UpdateResolutions();
+        currentResolurionIndex = PlayerPrefs.GetInt(title, resolutions.Length - 1);
     }
 
     private void Save()

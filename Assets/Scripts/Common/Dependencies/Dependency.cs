@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Dependency : MonoBehaviour
+public abstract class Dependency : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    protected virtual void BindAll(MonoBehaviour monoBehaviorInScene) { }
+    protected void FindAllObjectsToBind()
     {
-        
-    }
+        MonoBehaviour[] monoInScene = FindObjectsOfType<MonoBehaviour>();
 
-    // Update is called once per frame
-    void Update()
+        for (int i = 0; i < monoInScene.Length; i++)
+        {
+            BindAll(monoInScene[i]);
+        }
+    }
+    protected void Bind<T>(MonoBehaviour bindObject, MonoBehaviour target) where T : class 
     {
-        
+        if (target is IDependancy<T>) (target as IDependancy<T>).Construct(bindObject as T);
     }
 }
