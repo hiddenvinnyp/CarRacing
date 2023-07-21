@@ -401,6 +401,7 @@ MonoBehaviour:
   controller: {fileID: 0}
   timeTracker: {fileID: 7880623256418177477}
   resultTime: {fileID: 7880623255863602595}
+  carRespawner: {fileID: 7880623256985310631}
 --- !u!1 &7880623257560019261
 GameObject:
   m_ObjectHideFlags: 0

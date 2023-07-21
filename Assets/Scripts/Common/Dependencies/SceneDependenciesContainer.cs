@@ -9,6 +9,7 @@ public class SceneDependenciesContainer : Dependency
     [SerializeField] private CarCameraController controller;
     [SerializeField] private RaceTimeTracker timeTracker;
     [SerializeField] private RaceResultTime resultTime;
+    [SerializeField] private CarRespawner carRespawner;
 
     private void Awake()
     {
@@ -24,5 +25,6 @@ public class SceneDependenciesContainer : Dependency
         Bind<CarCameraController>(controller, monoBehaviorInScene);
         Bind<RaceTimeTracker>(timeTracker, monoBehaviorInScene);
         Bind<RaceResultTime>(resultTime, monoBehaviorInScene);
+        Bind<CarRespawner>(carRespawner, monoBehaviorInScene);
     }
 }

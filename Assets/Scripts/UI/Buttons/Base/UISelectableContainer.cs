@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class UISelectableContainer : MonoBehaviour
@@ -39,6 +38,7 @@ public class UISelectableContainer : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (buttons == null) return;
         foreach (UISelectableButton button in buttons)
         {
             button.PointerEnter -= OnPointerEnter;

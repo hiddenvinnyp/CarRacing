@@ -8,7 +8,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: e760c7eeb7c0c824ba818d4c86a98657
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Races/test_race.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Races/tutorial_race 1.unity
+    guid: a4fdff305aa72a04695c6585bcca44a9
+  - enabled: 1
+    path: Assets/Scenes/Races/tutorial_race 2.unity
+    guid: 05b51096d409f574397a122f84d9bd51
+  - enabled: 1
+    path: Assets/Scenes/Races/tutorial_race 3.unity
+    guid: 58b57c011ea1f5b40ba68634de1f6f6e
+  - enabled: 1
+    path: Assets/Scenes/Races/trainee_race 1.unity
+    guid: 9a7efb0a48b594a4697a2ea9635fafa4
+  - enabled: 1
+    path: Assets/Scenes/Races/trainee_race 2.unity
+    guid: 277514891d15c9a48a82abba13e590d8
+  - enabled: 1
+    path: Assets/Scenes/Races/pro_race 1.unity
+    guid: 4303f5314ba3b8b458875f6f0f3c7122
   m_configObjects: {}

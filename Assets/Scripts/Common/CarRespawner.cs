@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class CarRespawner : MonoBehaviour, IDependancy<RaceStateTracker>, IDependancy<Car>, IDependancy<CarInputControl>

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: tutorial_race 1
   title: Straight ahead
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 752c79dec4c646a4bb8d83c44c81ec7c, type: 3}

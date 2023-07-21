@@ -20,6 +20,7 @@ public class RaceStateTracker : MonoBehaviour, IDependancy<TrackpointCircuit>
 
     [SerializeField] private Timer countdownTimer;
     [SerializeField] private int lapsToComplete;
+    public int LapsToComplete => lapsToComplete;
 
     private TrackpointCircuit trackpointCircuit;
     public void Construct(TrackpointCircuit trackpointCircuit) =>
