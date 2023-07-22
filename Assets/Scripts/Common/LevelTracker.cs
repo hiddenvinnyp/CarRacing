@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -27,17 +26,14 @@ public class LevelTracker : MonoBehaviour
         if (maxCompletedLevel == null || maxCompletedLevel == "")
         {
             openedLevels.Add(levels[0].SceneName);
-            print("add " + openedLevels.Last());
         } else
         {
             for (int i = 0; i < levels.Length; i++)
             {
                 openedLevels.Add(levels[i].SceneName);
-                print("else add " + openedLevels.Last());
                 if (levels[i].SceneName == maxCompletedLevel)
                 {
                     openedLevels.Add(levels[i + 1]?.SceneName);
-                    print("else if add " + openedLevels.Last());
                     break;
                 }
             }
@@ -58,7 +54,6 @@ public class LevelTracker : MonoBehaviour
     {
         LevelListUpdate();
 
-        //проверять, что сцена в списке позже раннее записанной
         if (openedLevels.Contains(sceneName) && sceneName != openedLevels.Last()) return;
 
         PlayerPrefs.SetString(levelCompletedTag, sceneName);

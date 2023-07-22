@@ -18,7 +18,6 @@ public class UIRaceButtonUnlocker : MonoBehaviour, IDependancy<LevelTracker>
             if (levelTracker.OpenedLevels.Contains(button.SceneName))
             {
                 button.SetUnLocked();
-                print("unlock " + button.SceneName);
             }
         }
     }
