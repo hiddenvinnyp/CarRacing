@@ -80,6 +80,7 @@ Transform:
   m_Children:
   - {fileID: 2975622495668884345}
   - {fileID: 4065618058085063966}
+  - {fileID: 1134963973737954950}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauser: {fileID: 2692749747917348422}
+  levelTracker: {fileID: 6633111811142474946}
 --- !u!1 &4161203661738114375
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,3 +142,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fdee24f7da58843a9171be709e2ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7950718707282657335
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1134963973737954950}
+  - component: {fileID: 6633111811142474946}
+  m_Layer: 0
+  m_Name: LevelTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1134963973737954950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950718707282657335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2975622495712417494}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6633111811142474946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950718707282657335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b86a009a65eef429dad49a4fadccb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - {fileID: 11400000, guid: ea303e2abd03d8f4396dff205dee2725, type: 2}
+  - {fileID: 11400000, guid: 4d33853491a47164b8b3c2de482fb019, type: 2}
+  - {fileID: 11400000, guid: 2417976c580fd954b93bc33c84aacb52, type: 2}
+  - {fileID: 11400000, guid: 6e593eaf00cecbb44af3f48e1542a31c, type: 2}
+  - {fileID: 11400000, guid: 9ae3219715ea2074d899fd683809ae6b, type: 2}
+  - {fileID: 11400000, guid: 2cd0ed34934ed094493f4c7e0602532a, type: 2}

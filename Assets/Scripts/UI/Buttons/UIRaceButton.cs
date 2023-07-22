@@ -4,11 +4,13 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIRaceButton : UISelectableButton, IScriptableObjectProperty
+public class UIRaceButton : UIBlockedButton, IScriptableObjectProperty
 {
     [SerializeField] private RaceInfo raceInfo;
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI title;
+
+    public string SceneName => raceInfo.SceneName;
 
     private void Start()
     {
@@ -18,7 +20,7 @@ public class UIRaceButton : UISelectableButton, IScriptableObjectProperty
     public override void OnPointerClick(PointerEventData eventData)
     {
         base.OnPointerClick(eventData);
-
+        if (!Interactable) return;
         if (raceInfo == null) return;
         SceneManager.LoadScene(raceInfo.SceneName);
     }

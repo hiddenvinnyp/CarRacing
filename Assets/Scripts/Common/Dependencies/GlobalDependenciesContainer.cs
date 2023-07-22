@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GlobalDependenciesContainer : Dependency
 {
     [SerializeField] private Pauser pauser;
+    [SerializeField] private LevelTracker levelTracker;
 
     private static GlobalDependenciesContainer instance;
 
@@ -29,6 +30,7 @@ public class GlobalDependenciesContainer : Dependency
     protected override void BindAll(MonoBehaviour monoBehaviorInScene)
     {
         Bind<Pauser>(pauser, monoBehaviorInScene);
+        Bind<LevelTracker>(levelTracker, monoBehaviorInScene);
     }
 
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)

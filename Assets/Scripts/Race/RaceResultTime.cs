@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class RaceResultTime : MonoBehaviour, IDependancy<RaceTimeTracker>, IDependancy<RaceStateTracker>
+public class RaceResultTime : MonoBehaviour, IDependancy<RaceTimeTracker>, IDependancy<RaceStateTracker>, IDependancy<LevelTracker>
 {
     public static string SaveMark = "_player_best_time";
     public event UnityAction ResultUpdated;
@@ -22,6 +22,9 @@ public class RaceResultTime : MonoBehaviour, IDependancy<RaceTimeTracker>, IDepe
     private RaceTimeTracker timeTracker;
     public void Construct(RaceTimeTracker dependency) => timeTracker = dependency;
 
+    private LevelTracker levelTracker;
+    public void Construct(LevelTracker dependency) => levelTracker = dependency;
+
     private void Awake()
     {
         Load();
@@ -39,6 +42,8 @@ public class RaceResultTime : MonoBehaviour, IDependancy<RaceTimeTracker>, IDepe
 
     private void OnRaceCompleted()
     {
+        levelTracker.Save(SceneManager.GetActiveScene().name);
+
         float absoluteRecord = GetAbsoluteRecord();
 
         if (timeTracker.CurrentTime < absoluteRecord || playerRecordTime == 0)

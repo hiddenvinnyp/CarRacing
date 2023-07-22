@@ -46,7 +46,7 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public virtual void OnPointerClick(PointerEventData eventData)
     {
         if (!Interactable) return;
-
+        
         PointerClick?.Invoke(this);
         OnClick?.Invoke();
     }

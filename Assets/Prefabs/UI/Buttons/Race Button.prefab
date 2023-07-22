@@ -85,6 +85,10 @@ MonoBehaviour:
   OnUnSelect:
     m_PersistentCalls:
       m_Calls: []
+  lockedMark: {fileID: 1123772851541862578}
+  OnUnLocked:
+    m_PersistentCalls:
+      m_Calls: []
   raceInfo: {fileID: 0}
   icon: {fileID: 3097326026313850924}
   title: {fileID: 235688977833713974}
